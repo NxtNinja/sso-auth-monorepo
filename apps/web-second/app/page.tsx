@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Button } from "@workspace/ui/components/button";
 import LogoutBtn from "@/components/LogoutBtn";
 
 export default function Page() {
@@ -9,7 +8,7 @@ export default function Page() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:4000/", {
+        const response = await fetch("http://localhost:4001/", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
