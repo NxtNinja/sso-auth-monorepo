@@ -2,7 +2,7 @@
 
 Fastify SSO Auth is a **Single Sign-On (SSO) authentication system** designed to provide seamless authentication across multiple applications. It is built with **Fastify, Next.js, PostgreSQL, and Prisma**, and uses **Turborepo** for managing a monorepo structure.
 
-![Authentication Flow](images/AUTH-SSO.png)
+![Authentication Flow](images/AUTH_SSO.png)
 
 ## 🚀 Features
 
