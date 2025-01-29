@@ -3,9 +3,11 @@
 import { useEffect, useState } from "react";
 import { Button } from "@workspace/ui/components/button";
 import LogoutBtn from "@/components/LogoutBtn";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
   const [message, setMessage] = useState<string>("");
+  const router = useRouter();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -18,14 +20,20 @@ export default function Page() {
         });
 
         if (!response.ok) {
-          throw new Error(`Error: ${response.status}`);
+          if (response.status === 401) {
+            router.push("/login");
+            return;
+          }
         }
 
         const data = await response.json();
         setMessage(data.message);
         console.log("Data from API:", data.message);
-      } catch (error) {
-        console.error("Error fetching data:", error);
+      } catch (error: any) {
+        console.error("Error fetching data:", error.message);
+        if (error) {
+          router.push("/login");
+        }
       }
     };
 
